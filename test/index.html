@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<body onload="loadPage()">
+
+
+	<div id="start">
+  		<input type="button" value="START" OnClick="startGame()"/>
+	</div>
+	<div id="showText">
+  		<input type="text" id="showTextLabel" value="NONE">
+    		<input type="text" id="showTimeLabel" value="000">
+	</div>
+	<div id="enterText">
+		<input type="text" id="answer" value="Podaj odpowiedź">
+		<input type="button" value="submit" onClick="submitAnswer()"/>
+	</div>
+	<div id="score">
+  lose
+	</div>
+
+
+
+<script>
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+
+
+function changeVisibility(name, change) {
+    var x = document.getElementById(name);
+    if (change === false) {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function loadPage() {
+  changeVisibility("start", false);
+changeVisibility("showText", true);
+changeVisibility("enterText", true);
+changeVisibility("score", true);
+}
+
+const words = [
+    "jabłko", "ananas", "samochód", "kot", "telefon", "kwiat", "książka",
+    "rower", "słońce", "deszcz", "drzewo", "dom", "komputer", "serce",
+    "księżyc", "motocykl", "chmura", "kawa", "pizza", "gitara", "ryba",
+    "buty", "okno", "dziecko", "piłka", "telewizor", "kurtka", "laptop",
+    "kawałek", "papier", "kotlet", "skrzynia", "kwiaty", "książki",
+    "światło", "woda", "kredka", "dzwonek", "kubek", "lampa", "okulary",
+    "plecak", "sok", "krzesło", "kalendarz", "pociąg", "samolot", "drzwi"
+];
+
+console.log(words);
+
+var actualText = "test";
+
+function startGame(){
+
+//losowanie
+
+actualText = words[getRandomInt(words.length)];
+
+// sprawdzenie czy juz go nie bylo
+
+
+changeVisibility("start", true);
+changeVisibility("showText", false);
+document.getElementById("showTimeLabel").value = "5";
+document.getElementById("showTextLabel").value = actualText;
+
+sleep(1000).then(() => { 
+ document.getElementById("showTimeLabel").value = "4";
+});
+sleep(2000).then(() => { 
+ document.getElementById("showTimeLabel").value = "3";
+});
+sleep(3000).then(() => { 
+ document.getElementById("showTimeLabel").value = "2";
+});
+sleep(4000).then(() => { 
+ document.getElementById("showTimeLabel").value = "1";
+});
+sleep(5000).then(() => { 
+ document.getElementById("showTimeLabel").value = "0";
+});
+sleep(6000).then(() => { 
+ document.getElementById("showTimeLabel").value = "0";
+
+changeVisibility("showText", true);
+changeVisibility("enterText", false);
+});
+}
+
+function submitAnswer(){
+	var x = document.getElementById("answer").value;
+ 	if (x == actualText){
+		changeVisibility("enterText", true);
+		changeVisibility("start", false);
+	}else{
+		changeVisibility("enterText", true);
+		changeVisibility("score", false);
+	}
+}
+
+
+		
+
+</script>
+
+</body>
+</html>
