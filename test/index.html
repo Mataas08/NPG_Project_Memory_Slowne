@@ -1,11 +1,25 @@
 <!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Bootstrap 5 Charts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css'>
+
+</head>
 <html>
 <body onload="loadPage()">
-
 <div id="start">
 	<label for="easyModeSelect">Easy mode:</label> 
 	<input type="checkbox" id="easyModeSelect">
     <input type="button" value="START" OnClick="startGame()"/>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <canvas id="chLine"></canvas>
+            </div>
+        </div>
+    </div>
 </div>
 <div id="showText">
     <input type="text" id="showTextLabel" value="NONE">
@@ -22,6 +36,7 @@
 <div id="score">
     looooser
     <input type="text" id="showResultLabel" value="000">
+    <input type="button" value="Powrót" OnClick="backToLobby()"/>
 </div>
 
 
@@ -30,6 +45,9 @@
 
 <script>
 
+var wyniki = [0,0,0,0,0,0,0];
+var attempt = 0;
+
 var textRem;
 var round = 0;
 var words = [];
@@ -37,18 +55,27 @@ var words = [];
 function startGame(){
 	var mode = document.getElementById("easyModeSelect").checked;
 	if(mode == true){
-		words = [...wordsEasy];
+		words = [...short_words];
     }else{
-    	words = [...wordsNormal];
+    	words = [...long_words];
     }
     game();
+}
+
+function backToLobby(){
+	changeVisibilityOfDisplay("start");
+	round = 0;
+	textRem = "";
+	attempt++;
+	showScoreBoad();
 }
 
 function game(){
     round = round + 1;
 
     if (round > words.length) {
-        changeVisibilityOfDisplay("start");
+        backToLobby();
+        alert("XDD");
     } else {
         var actualText = [];
         var wordsInRound = [];
@@ -69,9 +96,9 @@ function game(){
         changeVisibilityOfDisplay("showText");
         document.getElementById("showTextLabel").value = textRem;
 
-        countingDown(1000, 5, "showTimeLabel");
+        countingDown(500, 4, "showTimeLabel");
 
-        sleep(6000).then(() => {
+        sleep(2500).then(() => {
             document.getElementById("showTimeLabel").value = "0";
 
             changeVisibilityOfDisplay("enterText");
@@ -84,9 +111,9 @@ function submitAnswer(){
     if (x == textRem){
         changeVisibilityOfDisplay("roundWon");
 
-        countingDown(1000, 2, "roundWonLabel");
+        countingDown(500, 4, "roundWonLabel");
 
-        sleep(3000).then(() => {
+        sleep(2500).then(() => {
             changeVisibilityOfDisplay("enterText");
             game();
         });
@@ -94,10 +121,61 @@ function submitAnswer(){
     }else{
         changeVisibilityOfDisplay("score");
         document.getElementById("showResultLabel").value = round - 1;
+        wyniki.push((round-1).toString());
     }
 }
 
+
+function showScoreBoad(){
+	var x = [0,0,0,0,0,0,0];
+	var y = [0,0,0,0,0,0,0];
+
+	 for (let i = 0; i < attempt; i++) {
+	 	x[6-i] = attempt - i - 1;
+	 }
+
+	var data = wyniki.join(" ").trim();
+	var values = data.split(' ').map(Number);
+	var y = values.slice(-7);
+
+	var chLine = document.getElementById("chLine");
+	var chartData = {
+  		labels: [x[0], x[1], x[2], x[3], x[4], x[5], x[6]],
+  		datasets: [{
+    		data: [y[0], y[1], y[2], y[3], y[4], y[5], y[6]],
+    		backgroundColor: 'transparent',
+    		borderColor: '#007bff',
+    		borderWidth: 4,
+    		pointBackgroundColor: '#007bff'
+  		}]
+	};
+
+	if (chLine) {
+  		new Chart(chLine, {
+  			type: 'line',
+  			data: chartData,
+  			options: {
+    			scales: {
+      				xAxes: [{
+        				ticks: {
+          					beginAtZero: false
+        				}
+      				}]
+    			},
+    			legend: {
+      				display: false
+    			},
+    			responsive: true
+  			}
+  		});
+	}
+}
+
 </script>
+
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js'></script><script  src="./script.js"></script>
 
 </body>
 </html>

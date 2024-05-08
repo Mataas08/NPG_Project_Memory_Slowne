@@ -18,14 +18,17 @@ function changeVisibilityOfDisplay(name) {
 }
 
 function countingDown(time, count, label){
-	document.getElementById(label).value = count;
+	document.getElementById(label).value = count/2;
 	for (let i = 1; i <= count; i++) {
     	sleep(i * time).then(() => {
-        	document.getElementById(label).value = count - i;
+        	document.getElementById(label).value = (count - i) / 2;
     	});
 	}
 }
 
 function loadPage() {
-    changeVisibilityOfDisplay("start");
+    backToLobby();
 }
+
+//
+

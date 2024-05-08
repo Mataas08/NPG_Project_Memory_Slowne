@@ -1,16 +1,25 @@
-const wordsEasy = [
-    "1", "2", "3", "4"
+const short_words = [
+    "kotek", "jajko", "bluza", "kabel", "nóż", "łyżka", "kebab", "mysz", "kwiat", "okręt",
+    "arbuz", "ser", "joga", "auto", "tir", "mleko", "kubek", "most", "pilot", "lampa",
+    "dywan", "list", "waga", "dron", "łąka", "buty", "kufel", "klucz", "wózek", "koc",
+    "okoń", "karp", "sum", "lina", "gęś", "gołąb", "dżem", "krowa", "rower", "ptak",
+    "sowa", "stół", "koń", "żółw", "woda", "róża", "kosz", "pisak", "łóżko", "banan",
+    "masło", "staw", "piec", "pies", "dach", "strop", "mango", "wino", "tost", "bułka",
+    "pięść", "udo", "mózg", "nerka", "oczy", "kreda", "notes", "filc", "dom", "olej",
+    "kawa", "chleb", "dąb", "sosna", "cis", "krzew", "słoik", "motor", "stopy", "plecy",
+    "tasak", "okno", "flet", "piłka", "ryba", "stek", "filet", "ameba", "salsa", "tango",
+    "biuro", "kask", "kajak", "łódka", "sznur", "włosy", "usta", "uszy", "serce", "płuca"
 ];
 
-const wordsNormal = [
-    "kotek", "jajko", "okulary", "kabel", "drabina", "cukier", "kompas", "myszka", "kwiatek", "okręt",
-    "traktor", "sernik", "jogurt", "samochodzik", "butelka", "mleko", "filizanka", "arbuz", "mikrofon", "grażyna",
-    "dywan", "szynka", "waga", "rakieta", "łąka", "sweter", "spódnica", "sukienka", "wózek", "roleta",
-    "pomarańcza", "dzwiek", "soczewka", "kurczak", "wiatrak", "gołąb", "dżem", "pociąg", "rower", "ptak",
-    "sowa", "stół", "krzesło", "klawiatura", "samolot", "róża", "kosz", "truskawka", "ananas", "banan",
-    "masło", "kuchenka", "piec", "kotlet", "schody", "kwiaty", "brzoskwinia", "słonko", "komputer", "klucz",
-    "kot", "pies", "kobieta", "mężczyzna", "lampa", "kredka", "książka", "szkoła", "dom", "woda",
-    "kawa", "chleb", "drzewo", "samochód", "motocykl", "telefon", "łóżko", "buty", "kurtka", "spodnie",
-    "bluzka", "okno", "kalendarz", "piłka", "ryba", "pociąg", "rower", "samolot", "domek", "kwiatek",
-    "biurko", "koszulka", "kajak", "łódka", "kotwica", "oko", "ustka", "uszy", "usta", "nożyczki"
+const long_words = [
+    "hipopotam", "aligator", "krokodyl", "niedźwiedź", "pantera", "dinozaur", "myszołów", "heloderma", "tygrys", "piżmowół",
+    "ananas", "jogurt", "awokado", "durian", "gruszka", "pomarańcza", "banany", "cytryna", "pomidor", "marchew",
+    "azbest", "podłoga", "poduszka", "kołdra", "mokradła", "karczma", "rozstaje", "gigant", "akademik", "miasto",
+    "klajster", "książka", "komiks", "komputer", "laptop", "zeszyt", "piórnik", "słuchawki", "nauszniki", "czapla",
+    "mutant", "komórka", "drabina", "ambulans", "kaloryfer", "żaluzje", "rolety", "materiał", "fotowoltaika", "automatyka",
+    "robotyka", "jezioro", "puszcza", "tundra", "pustynia", "sawanna", "diament", "batyskaf", "supernowa", "fotoreceptory",
+    "termowizja", "proteza", "synapsy", "neurony", "cholesterol", "gangrena", "juwenalia", "mezozoik", "archaik", "proterozoik",
+    "prekambr", "leniwiec", "żyrafa", "wieżowiec", "równik", "południk", "witaminy", "selekcja", "baraki", "materac",
+    "aluminium", "siłownia", "kręgielnia", "kancelaria", "endemit", "konserwatyzm", "ideologia", "gubernator", "figura", "macierz",
+    "konstantynopol", "konstantynopolitańczykowianeczka", "kraków", "kastet", "rzepak", "kuluary", "wulkan", "promieniowanie", "kontynent", "półkula"
 ];
