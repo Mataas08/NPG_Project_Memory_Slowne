@@ -1,0 +1,39 @@
+.unselectable {
+      	-webkit-user-select: none;
+      	-webkit-touch-callout: none;
+      	-moz-user-select: none;
+      	-ms-user-select: none;
+      	user-select: none;
+    }
+
+    #showText {
+		text-align: center;
+		margin-top: 40vh;
+    }
+
+    #showTextLabel {
+      	display: block;
+      	font-size: 36px;
+      	margin-bottom: 5px;
+    }
+
+    #showTimeLabel {
+      	display: block;
+      	font-size: 24px;
+    }
+
+
+    #roundWon{
+    	text-align: center;
+		margin-top: 40vh;
+    }
+
+    #enterText{
+    	text-align: center;
+		margin-top: 40vh;
+    }
+
+    #score{
+    	text-align: center;
+		margin-top: 40vh;
+    }
