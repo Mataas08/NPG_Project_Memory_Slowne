@@ -53,7 +53,7 @@ function game() {
 
         sleep(3500).then(() => {
             document.getElementById("showTimeLabel").innerText = "0";
-
+		document.getElementById("answer").innerText = "Podaj";
             changeVisibilityOfDisplay("enterText");
         });
     }
