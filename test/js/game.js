@@ -24,6 +24,8 @@ function backToLobby() {
 }
 
 function game() {
+	document.getElementById("answer").value = "";
+
     round = round + 1;
 
     if (round > words.length) {
