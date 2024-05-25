@@ -14,7 +14,7 @@ function startGame(){
         words = [...short_words];
     } else if(midMode) {
         words = [...mid_words];
-    } else {
+    } else if(highMode) {
         words = [...long_words];
     }
     game();
