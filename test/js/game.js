@@ -6,11 +6,16 @@ var round = 0;
 var words = [];
 
 function startGame(){
-	var mode = document.getElementById("easyModeSelect").checked;
-	if(mode == true){
-		words = [...short_words];
-    }else{
-    	words = [...long_words];
+    var easyMode = document.getElementById("easyModeSelect").checked;
+    var midMode = document.getElementById("midModeSelect").checked;
+    var highMode = document.getElementById("highModeSelect").checked;
+
+    if(easyMode) {
+        words = [...short_words];
+    } else if(midMode) {
+        words = [...mid_words];
+    } else {
+        words = [...long_words];
     }
     game();
 }
