@@ -18,12 +18,12 @@
       		<div class="container">
         		<div class="card">
           			<div class="card-body">
-          				<label for="easyModeSelect">Easy mode:</label>
-      					<input type="checkbox" id="easyModeSelect">
+          				 <label for="easyModeSelect">Easy mode:</label>
+   					 <input type="radio" id="easyModeSelect" name="gameMode" value="easy">
 					<label for="midModeSelect">Medium mode:</label>
-      					<input type="checkbox" id="midModeSelect">
+					<input type="radio" id="midModeSelect" name="gameMode" value="medium">
 					<label for="highModeSelect">Hard mode:</label>
-      					<input type="checkbox" id="highModeSelect">
+					 <input type="radio" id="highModeSelect" name="gameMode" value="hard">
       					<input type="button" value="START" OnClick="startGame()"/>
             			<canvas id="chLine" style="max-width:500px; max-height: 300px;"></canvas>
           			</div>
