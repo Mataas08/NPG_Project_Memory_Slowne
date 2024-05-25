@@ -5,6 +5,16 @@ var textRem;
 var round = 0;
 var words = [];
 
+document.addEventListener("DOMContentLoaded", function() {
+    var answerInput = document.getElementById("answer");
+
+    answerInput.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            submitAnswer();
+        }
+    });
+});
+
 function startGame(){
     var easyMode = document.getElementById("easyModeSelect").checked;
     var midMode = document.getElementById("midModeSelect").checked;
