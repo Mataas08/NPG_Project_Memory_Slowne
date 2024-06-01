@@ -7,14 +7,23 @@ function getRandomInt(max) {
 }
 
 function changeVisibilityOfDisplay(name) {
-	var displays = ["start", "showText", "enterText", "roundWon", "score"];
-	for (let i = 0; i < 5; i++) {
-		var x = document.getElementById(displays[i]);	
+    var displays = ["start", "showText", "enterText", "roundWon", "score", "chLine"];
+    for (let i = 0; i < displays.length; i++) {
+        var x = document.getElementById(displays[i]);
         x.style.display = "none";
     }
-     
+
     var x = document.getElementById(name);
     x.style.display = "block";
+}
+
+function changeVisibilityOfChart(){
+	var chLine = document.getElementById("chLine");
+    if (chLine.style.display === "none") {
+        chLine.style.display = "block";
+    } else {
+        chLine.style.display = "none";
+    }
 }
 
 function countingDown(time, count, label){
@@ -30,5 +39,5 @@ function loadPage() {
     backToLobby();
 }
 
-//
+
 
