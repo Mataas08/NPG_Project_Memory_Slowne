@@ -29,8 +29,18 @@ function showScoreBoard() {
             options: {
                 scales: {
                     xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'numer próby'
+                        },
                         ticks: {
                             beginAtZero: false
+                        }
+                    }],
+                    yAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'wynik'
                         }
                     }]
                 },
