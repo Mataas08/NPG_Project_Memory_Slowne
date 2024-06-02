@@ -37,3 +37,8 @@
     	text-align: center;
 		margin-top: 40vh;
     }
+	#start{
+		margin-top:12.5vh;}
+.card-no-border {
+	border: none;
+}

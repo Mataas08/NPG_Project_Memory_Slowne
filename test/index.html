@@ -19,25 +19,41 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item">
+                    <li class="nav-item text-center">
 						<a class="nav-link" id="scoreButton" onclick="changeVisibilityOfChart()">Wyniki</a>
+                    </li>
+                    <li class="nav-item text-center">
+						<a class="nav-link" href="#" id="helpButton">Zasady</a>    
+                    </li>
+                    <li class="nav-item text-center">
+						<a class="nav-link" href="#">Placeholder</a>    
+                    </li>
+                    <li class="nav-item text-center">
+						<a class="nav-link" href="#">Placeholder</a>    
                     </li>
                 </ul>
             </div>
+                    
+
         </nav>
 
-        <div id="start">
+        <div id="start" style="margin-top:12.5vh">
             <div class="container">
-                <div class="card">
+                <div class="card text-center card-no-border">
                     <div class="card-body">
-                        <label for="easyModeSelect">Easy mode:</label>
-                        <input type="radio" id="easyModeSelect" name="gameMode" value="easy">
-                        <label for="midModeSelect">Medium mode:</label>
-                        <input type="radio" id="midModeSelect" name="gameMode" value="medium">
-                        <label for="highModeSelect">Hard mode:</label>
-                        <input type="radio" id="highModeSelect" name="gameMode" value="hard">
-                        <input type="button" value="START" onclick="startGame()" />
-						<canvas id="chLine" style="max-width:500px; max-height: 300px; display: none;"></canvas>
+                        <div>
+                            <input type="button" class="btn btn-lg btn-primary" value="START" onclick="startGame()" />
+                        </div>
+                        <div>
+                            <h3 class="card-title mb-3">Wybierz poziom trudności</h3>
+                            <label for="easyModeSelect">Easy</label>
+                            <input type="radio" id="easyModeSelect" name="gameMode" value="easy">
+                            <label for="midModeSelect">Medium</label>
+                            <input type="radio" id="midModeSelect" name="gameMode" value="medium">
+                            <label for="highModeSelect">Hard</label>
+                            <input type="radio" id="highModeSelect" name="gameMode" value="hard">
+                        </div>
+						<canvas id="chLine" style="max-width:500px; max-height: 300px; display: none;margin: 0 auto"></canvas>
                     </div>
                 </div>
             </div>
