@@ -103,6 +103,7 @@ function game() {
 		    document.getElementById("answer").innerText = "Podaj";
 		document.getElementById("answer").placeholder = "Podaj odpowiedź";
             changeVisibilityOfDisplay("enterText");
+		document.getElementById("answer").focus();
         });
     }
 }
