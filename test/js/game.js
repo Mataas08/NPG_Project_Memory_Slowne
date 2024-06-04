@@ -8,12 +8,41 @@ var words = [];
 document.addEventListener("DOMContentLoaded", function() {
     var answerInput = document.getElementById("answer");
 
+    loadGameProgress(); // cookie - Wczytuje postępy gry przy ładowaniu strony	
+
     answerInput.addEventListener("keydown", function(event) {
         if (event.key === "Enter") {
             submitAnswer();
         }
     });
 });
+
+function saveGameProgress() { // cookie - Funkcja do zapisywania postępów gry w Local Storage
+    const gameProgress = {
+        wyniki: wyniki,
+        attempt: attempt,
+        round: round,
+        words: words
+    };
+    const gameProgressJSON = JSON.stringify(gameProgress);
+    localStorage.setItem('gameProgress', gameProgressJSON); // cookie - Zapis do Local Storage
+    console.log('Postępy gry zapisane!'); // Log
+    console.log('Zapisane dane:', gameProgress); // Log
+}
+
+function loadGameProgress() { // cookie - Funkcja do wczytywania postępów gry z Local Storage
+    const savedProgress = localStorage.getItem('gameProgress'); // cookie - Odczyt z Local Storage
+    if (savedProgress) {
+        const gameProgress = JSON.parse(savedProgress);
+        wyniki = gameProgress.wyniki;
+        attempt = gameProgress.attempt;
+        round = gameProgress.round;
+        words = gameProgress.words;
+        console.log('Postępy gry załadowane!', gameProgress);
+    } else {
+        console.log('Brak zapisanych postępów gry.'); 
+    }
+}
 
 function startGame(){
     var easyMode = document.getElementById("easyModeSelect").checked;
@@ -36,6 +65,7 @@ function backToLobby() {
     textRem = "";
     attempt++;
     showScoreBoard();
+    saveGameProgress(); // cookie - Zapis postępów gry po każdej próbie
 }
 
 function game() {
@@ -70,10 +100,8 @@ function game() {
 
         sleep(3500).then(() => {
             document.getElementById("showTimeLabel").innerText = "0";
-		document.getElementById("answer").innerText = "Podaj";
-		document.getElementById("answer").placeholder = "Podaj odpowiedź";
+		    document.getElementById("answer").innerText = "Podaj";
             changeVisibilityOfDisplay("enterText");
-		document.getElementById("answer").focus();
         });
     }
 }
@@ -96,5 +124,6 @@ function submitAnswer() {
         wyniki.push((round - 1).toString());
 
         showScoreBoard();
+	    saveGameProgress(); // cookie - Zapis postępów gry po każdej próbie
     }
 }
