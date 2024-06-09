@@ -5,6 +5,43 @@ var textRem;
 var round = 0;
 var words = [];
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    const htmlElement = document.documentElement;
+    const switchElement = document.getElementById('darkModeSwitch');
+    const navbarElement = document.querySelector('.navbar');
+
+    const currentTheme = localStorage.getItem('bsTheme') || 'dark';
+
+    // Ustawienie tematu na stronie i aktualizacja klasy navbara
+    htmlElement.setAttribute('data-bs-theme', currentTheme);
+    updateNavbarTheme(currentTheme);
+
+    // Obsługa kliknięcia przycisku zmiany trybu
+    switchElement.addEventListener('click', function () {
+        if (htmlElement.getAttribute('data-bs-theme') === 'dark') {
+            htmlElement.setAttribute('data-bs-theme', 'light');
+            localStorage.setItem('bsTheme', 'light');
+            updateNavbarTheme('light');
+        } else {
+            htmlElement.setAttribute('data-bs-theme', 'dark');
+            localStorage.setItem('bsTheme', 'dark');
+            updateNavbarTheme('dark');
+        }
+    });
+
+    // Funkcja aktualizująca klasę tła navbara na podstawie trybu
+    function updateNavbarTheme(theme) {
+        if (theme === 'dark') {
+            navbarElement.classList.remove('navbar-light');
+            navbarElement.classList.add('navbar-dark', 'bg-dark');
+        } else {
+            navbarElement.classList.remove('navbar-dark', 'bg-dark');
+            navbarElement.classList.add('navbar-light', 'bg-light');
+        }
+    }
+});
+
+
 document.addEventListener("DOMContentLoaded", function() {
     var answerInput = document.getElementById("answer");
 
