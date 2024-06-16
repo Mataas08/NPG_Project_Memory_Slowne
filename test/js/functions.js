@@ -46,8 +46,11 @@ function showRules() {
 }
 
 function hideRules() {
+    var iframe = document.getElementById("instructionVideo");
+    if (iframe) {
+        var src = iframe.src;
+        iframe.src = src; // Reset the src attribute to stop the video
+    }
     changeVisibilityOfDisplay("start");
 }
-
-
 
