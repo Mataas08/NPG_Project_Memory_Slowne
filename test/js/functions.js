@@ -39,5 +39,15 @@ function loadPage() {
     backToLobby();
 }
 
+// funkcje odpowiedzialne za przycisk zasady gry:
+
+function showRules() {
+    changeVisibilityOfDisplay("rules");
+}
+
+function hideRules() {
+    changeVisibilityOfDisplay("start");
+}
+
 
 
